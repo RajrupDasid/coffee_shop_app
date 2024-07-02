@@ -1,10 +1,11 @@
 import 'package:coffeeshopapp/components/my_button.dart';
 import 'package:coffeeshopapp/components/my_textfield.dart';
+import 'package:coffeeshopapp/pages/HomePage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
-  LoginPage({super.key, required this.onTap});
+  const LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -13,6 +14,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  //login functons
+  void login() {
+    // authentication backend logic
+
+    //on successfull login navigate to home page
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Homepage(),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true),
 
               //signin button
-              MyButton(text: "Sign In", onTap: () {}),
+              MyButton(text: "Sign In", onTap: login),
               const SizedBox(
                 height: 25,
               ),

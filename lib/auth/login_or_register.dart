@@ -1,3 +1,5 @@
+import 'package:coffeeshopapp/pages/login_page.dart';
+import 'package:coffeeshopapp/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginOrRegister extends StatefulWidget {
@@ -8,8 +10,21 @@ class LoginOrRegister extends StatefulWidget {
 }
 
 class _LoginOrRegisterState extends State<LoginOrRegister> {
+  //initially show login page
+  bool showLoginPage = true;
+  //toogle between login and register page
+  void togglePages() {
+    setState(() {
+      showLoginPage = !showLoginPage;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    if (showLoginPage) {
+      return LoginPage(onTap: togglePages);
+    } else {
+      return RegisterPage(onTap: togglePages);
+    }
   }
 }
