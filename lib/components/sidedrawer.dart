@@ -1,3 +1,5 @@
+import 'package:coffeeshopapp/components/drawer_tile.dart';
+import 'package:coffeeshopapp/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class Sidedrawer extends StatelessWidget {
@@ -22,13 +24,38 @@ class Sidedrawer extends StatelessWidget {
             child: Divider(
               color: Theme.of(context).colorScheme.secondary,
             ),
-          )
+          ),
 
           //home list title
+          DrawerTile(
+            text: "H o m e",
+            icon: Icons.home_rounded,
+            onTap: () => Navigator.pop(context),
+          ),
 
           //settings list title
+          DrawerTile(
+              text: "S e t t i n g s",
+              icon: Icons.settings_rounded,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsPage()));
+              }),
 
+          const Spacer(),
           //logging out
+          DrawerTile(
+            text: "L o g o u t",
+            icon: Icons.logout_rounded,
+            onTap: () => {},
+          ),
+
+          const SizedBox(
+            height: 25,
+          )
         ],
       ),
     );
