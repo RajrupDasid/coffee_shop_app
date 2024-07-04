@@ -1,6 +1,6 @@
 import 'package:coffeeshopapp/components/my_button.dart';
 import 'package:coffeeshopapp/components/my_textfield.dart';
-import 'package:coffeeshopapp/pages/HomePage.dart';
+import 'package:coffeeshopapp/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
